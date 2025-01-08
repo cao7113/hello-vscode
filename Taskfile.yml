@@ -1,0 +1,12 @@
+# https://taskfile.dev/usage/
+version: '3'
+tasks:
+  default: task build
+  build: rm -f out/extension.js && bun run compile # bun tsc
+  pkg: bun run package
+  
+  setup: |
+    bun add -d @types/vscode vsce vscode
+    # @types/vscode VS Code 插件开发的类型定义。
+    # vsce 用于插件打包和发布。
+    # vscode VS Code 插件 API 的核心库。

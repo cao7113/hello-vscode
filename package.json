@@ -1,0 +1,39 @@
+{
+  "name": "hello-vscode",
+  "displayName": "Hello VSCode",
+  "description": "A Hello World VS Code extension built with Bun and TypeScript",
+  "version": "0.0.1",
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "bun tsc",
+    "watch": "bun tsc --watch",
+    "package": "bun vsce package --out out"
+  },
+  "repository": "https://github.com/cao7113/hello-vscode",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/vscode": "^1.96.0",
+    "vsce": "^2.15.0",
+    "vscode": "^1.1.37"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:hello.world"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "title": "Hello",
+        "command": "hello.world"
+      }
+    ]
+  }
+}
