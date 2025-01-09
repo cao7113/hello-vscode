@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
     "module": "CommonJS",
+    "target": "ES2022",
+		"lib": ["ES2022", "DOM"],
     "outDir": "out",
     "strict": true,
-    "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["@types/vscode"]
+    "types": ["@types/vscode"],
+		"rootDir": "src"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", ".vscode-test"]
 }
 

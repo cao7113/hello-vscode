@@ -2,11 +2,24 @@
 version: '3'
 tasks:
   default: task build
-  build: rm -f out/extension.js && bun run compile # bun tsc
-  pkg: bun run package
-  
+  build: rm -fr out/ && npm run compile
+  pkg: npm run package
+
+  mk-helloworld: |
+    # npm install --global yo generator-code
+    # yo code
+    yo code:app helloworld --extensionType ts --extensionId helloworld \
+      --extensionDisplayName helloworld --extensionDescription "hello world" --pkgManager npm \
+      --gitInit false # --bundler unbundled # --skip-install # --quick 
+
+  mk-tmp-hello: |
+    rm -fr tmp-hello
+    yo code:app tmp-hello --extensionType ts --extensionId hello2 \
+      --extensionDisplayName hello2 --extensionDescription "hello" --pkgManager npm \
+      --gitInit false # --skip-install # --quick --bundler unbundled 
+
   setup: |
-    bun add -d @types/vscode vsce vscode
+    npm add --save-dev @types/vscode vsce vscode
     # @types/vscode VS Code 插件开发的类型定义。
     # vsce 用于插件打包和发布。
     # vscode VS Code 插件 API 的核心库。

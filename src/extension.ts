@@ -4,10 +4,10 @@ const buildDate = new Date().toLocaleString();
 
 export function activate(context: vscode.ExtensionContext) {
     console.log('Hello extension is now active!');
-
-    
     const disposable = vscode.commands.registerCommand('hello.world', () => {
-        vscode.window.showInformationMessage(`Hello from hello-vscode! Build time: ${buildDate}`);
+        const msg = `Hello from hello-vscode! Build time: ${buildDate}`;
+        // vscode.window.showInformationMessage(msg);
+        vscode.window.showErrorMessage(msg);
     });
 
     context.subscriptions.push(disposable);
